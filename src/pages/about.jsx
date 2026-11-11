@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const About = () => {
+const about = () => {
   return (
     <div className="container section-padding">
       <h1 className="section-title">About Smart Home</h1>
@@ -48,4 +48,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default about;

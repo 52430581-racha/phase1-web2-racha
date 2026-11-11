@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-const Contact = () => {
+const contact = () => {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -71,4 +71,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default contact;

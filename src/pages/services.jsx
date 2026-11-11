@@ -1,4 +1,4 @@
-const Services = ({ addToCart }) => {
+const services = ({ addToCart }) => {
   const services = [
     {
       id: 4,
@@ -78,4 +78,4 @@ const Services = ({ addToCart }) => {
   );
 };
 
-export default Services;
+export default services;

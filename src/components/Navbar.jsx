@@ -1,81 +1,33 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
-const Navbar = ({ cart, removeFromCart }) => {
-  const [showCart, setShowCart] = useState(false);
-  const [showMenu, setShowMenu] = useState(false);
-
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
-
+const Navbar = () => {
   return (
-    <nav className="smart-navbar">
-      <div className="container nav-container">
-        <Link to="/" className="logo">
-          Smart<span>Home</span>
+    <nav className="navbar bg-dark p-3">
+      <div className="container">
+        <Link to="/" className="navbar-brand text-white fw-bold">
+          Smart Home
         </Link>
 
-        <button className="menu-button" onClick={() => setShowMenu(!showMenu)}>
-          ☰
-        </button>
-
-        <div className={`nav-links ${showMenu ? "show-menu" : ""}`}>
-          <Link to="/" onClick={() => setShowMenu(false)}>
+        <div className="d-flex gap-3 flex-wrap">
+          <Link to="/" className="text-white text-decoration-none">
             Home
           </Link>
-          <Link to="/about" onClick={() => setShowMenu(false)}>
+
+          <Link to="/about" className="text-white text-decoration-none">
             About
           </Link>
-          <Link to="/services" onClick={() => setShowMenu(false)}>
+
+          <Link to="/services" className="text-white text-decoration-none">
             Services
           </Link>
-          <Link to="/contact" onClick={() => setShowMenu(false)}>
+
+          <Link to="/contact" className="text-white text-decoration-none">
             Contact
           </Link>
-          <Link to="/contact-list" onClick={() => setShowMenu(false)}>
+
+          <Link to="/contact-list" className="text-white text-decoration-none">
             Contact List
           </Link>
-        </div>
-
-        <div className="cart-area">
-          <button
-            className="cart-button"
-            onClick={() => setShowCart(!showCart)}
-          >
-            🛒 Cart ({cart.length})
-          </button>
-
-          {showCart && (
-            <div className="cart-dropdown">
-              <h5>My Shopping Cart</h5>
-
-              {cart.length === 0 ? (
-                <p>Your cart is empty.</p>
-              ) : (
-                <>
-                  {cart.map((item, index) => (
-                    <div className="cart-item" key={index}>
-                      <div>
-                        <strong>{item.name}</strong>
-                        <p>${item.price}</p>
-                      </div>
-
-                      <button
-                        className="btn btn-sm btn-danger"
-                        onClick={() => removeFromCart(index)}
-                      >
-                        X
-                      </button>
-                    </div>
-                  ))}
-
-                  <h5 className="mt-3">Total: ${total.toFixed(2)}</h5>
-                  <p className="small text-muted">
-                    Demo cart — no online payment.
-                  </p>
-                </>
-              )}
-            </div>
-          )}
         </div>
       </div>
     </nav>
